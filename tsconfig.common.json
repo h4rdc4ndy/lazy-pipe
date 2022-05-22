@@ -3,7 +3,7 @@
       "module": "CommonJS",
       "target": "ES5",
       "lib": ["ES6"],
-      "outDir": "./dist/esm"
+      "outDir": "./dist/common"
     },
     "include": ["src/**/*"]
 }
