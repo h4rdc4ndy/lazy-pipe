@@ -16,4 +16,3 @@ export * from './operators';
 //     .run({ resolve: () => console.log('DONE') });
 
 // setTimeout(cancel, 2000);
-//
