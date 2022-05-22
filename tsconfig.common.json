@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "module": "CommonJS",
+      "target": "ES5",
+      "lib": ["ES6"],
+      "outDir": "./dist/esm"
+    },
+    "include": ["src/**/*"]
+}

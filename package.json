@@ -1,0 +1,21 @@
+{
+  "name": "lazy-pipe",
+  "version": "1.0.0",
+  "description": "tiny functional lazy pipe operator with a lot of flexibility and clean api",
+  "main": "dist/common/index.js",
+  "module": "dist/esm/index.js",
+  "scripts": {
+    "build:dist": "rm -rf dist && tsc --build tsconfig.common.json && tsc --build tsconfig.esm.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build:dist && git add ."
+    }
+  },
+  "author": "Ahmed Youssef <ahmedyoussef7000@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^2.2.0",
+    "typescript": "^4.6.4"
+  }
+}
