@@ -8,13 +8,21 @@ export const map = (f) => (context) => {
 };
 
 export const switchMap = (f) => {
+    let counter = 0;
     let currentCancelFn;
     const maybeCancel = () => {
+        counter++;
         if (typeof currentCancelFn === 'function') currentCancelFn();
     };
+    const resolveGuard = (i, context) => (data) => {
+        if (i === counter) context.resolve(data);
+    }
+    const rejectGuard = (i, context) => (err) => {
+        if (i === counter) context.reject(err);
+    }
     return (context) => {
         maybeCancel();
-        currentCancelFn = f(context);
+        currentCancelFn = f({ ...context, resolve: resolveGuard(counter, context), reject: rejectGuard(counter, context) });
         return maybeCancel;
     };
 };

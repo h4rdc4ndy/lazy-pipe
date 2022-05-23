@@ -22,14 +22,24 @@ var map = function (f) { return function (context) {
 }; };
 exports.map = map;
 var switchMap = function (f) {
+    var counter = 0;
     var currentCancelFn;
     var maybeCancel = function () {
+        counter++;
         if (typeof currentCancelFn === 'function')
             currentCancelFn();
     };
+    var resolveGuard = function (i, context) { return function (data) {
+        if (i === counter)
+            context.resolve(data);
+    }; };
+    var rejectGuard = function (i, context) { return function (err) {
+        if (i === counter)
+            context.reject(err);
+    }; };
     return function (context) {
         maybeCancel();
-        currentCancelFn = f(context);
+        currentCancelFn = f(__assign(__assign({}, context), { resolve: resolveGuard(counter, context), reject: rejectGuard(counter, context) }));
         return maybeCancel;
     };
 };
