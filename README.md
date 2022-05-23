@@ -1,8 +1,8 @@
-# lazy-pipe
+# @reactive/lazy-pipe
 tiny functional lazy pipe operator with a lot of flexibility and clean api
 
 # introduction
-lazy-pipe is a simple function that implements recursive composition,
+@reactive/lazy-pipe is a simple function that implements recursive composition,
 the composition result can be forked by invoking the "run" method,
 the api is interesting. 
 
@@ -33,7 +33,7 @@ const timeout = (tag) => (context) => {
 # 1 - sequential and parallel computations
 
 ```js
-import { lazyPipe } from 'lazy-pipe';
+import { lazyPipe } from '@reactive/lazy-pipe';
 
 lazyPipe
     (timeout('A'))
@@ -66,7 +66,7 @@ array values has the same order of the computations
 # 2 - cancellation
 
 ```js
-import { lazyPipe } from 'lazy-pipe';
+import { lazyPipe } from '@reactive/lazy-pipe';
 
 const cancel = lazyPipe(timeout('A'))(timeout('B')).run({ resolve: console.log, reject: console.error })
 
@@ -77,7 +77,7 @@ cancel();
 # 3 - nesting
 
 ```js
-import { lazyPipe } from 'lazy-pipe';
+import { lazyPipe } from '@reactive/lazy-pipe';
 
 lazyPipe
     (timeout('A'))
@@ -90,7 +90,7 @@ takes a context and returns a cleanup function
 # 4 - custom operators
 
 ```js
-import { lazyPipe, map, switchMap, /* and few others */ } from 'lazy-pipe';
+import { lazyPipe, map, switchMap, /* and few others */ } from '@reactive/lazy-pipe';
 const add = n1 => n2 => n1 + n2;
 
 lazyPipe
@@ -105,7 +105,7 @@ lazyPipe
 # 5 - pass random data
 
 ```js
-import { lazyPipe, map, switchMap, /* and few others */ } from 'lazy-pipe';
+import { lazyPipe, map, switchMap, /* and few others */ } from '@reactive/lazy-pipe';
 const add = n1 => n2 => n1 + n2;
 
 lazyPipe
