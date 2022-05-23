@@ -56,7 +56,7 @@ then logs -> DONE ['X', 'Y', 'Z']
 runs in order from top to bottom, passing data to each others through the "resolve" method
 
 - X, Y and Z are parallel, 
-forked at the same time and waited on to complete before invoking the nexst step in the chain (which is the last resolve method that prints 'DONE')
+forked at the same time and waited on to complete before invoking the next step in the chain (which is the last resolve method that prints 'DONE')
 
 - the point is, any step with multiple computaions will run in parallel
 
