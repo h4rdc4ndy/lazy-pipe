@@ -1,9 +1,22 @@
 {
   "name": "reactive-lazy-pipe",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "tiny functional lazy pipe operator with a lot of flexibility and clean api",
   "main": "dist/common/index.js",
   "module": "dist/esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h4rdc4ndy/reactive-lazy-pipe.git"
+  },
+  "keywords": [
+    "reactive",
+    "lazy",
+    "pipe",
+    "compose",
+    "recursive",
+    "cancelable",
+    "reader"
+  ],
   "scripts": {
     "build:dist": "rm -rf dist && tsc --build tsconfig.common.json && tsc --build tsconfig.esm.json"
   },

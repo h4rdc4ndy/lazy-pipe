@@ -1,6 +1,9 @@
 # reactive-lazy-pipe
 tiny functional lazy pipe operator with a lot of flexibility and clean api
 
+# install
+npm i reactive-lazy-pipe
+
 # introduction
 reactive-lazy-pipe is a simple function that implements recursive composition,
 the composition result can be forked by invoking the "run" method,
