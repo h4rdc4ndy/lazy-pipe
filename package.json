@@ -1,5 +1,5 @@
 {
-  "name": "@reactive/lazy-pipe",
+  "name": "reactive-lazy-pipe",
   "version": "1.0.0-beta.1",
   "description": "tiny functional lazy pipe operator with a lot of flexibility and clean api",
   "main": "dist/common/index.js",

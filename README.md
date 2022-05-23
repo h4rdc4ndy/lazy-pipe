@@ -1,8 +1,8 @@
-# @reactive/lazy-pipe
+# reactive-lazy-pipe
 tiny functional lazy pipe operator with a lot of flexibility and clean api
 
 # introduction
-@reactive/lazy-pipe is a simple function that implements recursive composition,
+reactive-lazy-pipe is a simple function that implements recursive composition,
 the composition result can be forked by invoking the "run" method,
 the api is interesting. 
 
@@ -33,9 +33,9 @@ const timeout = (tag) => (context) => {
 # 1 - sequential and parallel computations
 
 ```js
-import { lazyPipe } from '@reactive/lazy-pipe';
+import { pipe } from 'reactive-lazy-pipe';
 
-lazyPipe
+pipe
     (timeout('A'))
     (timeout('B'))
     (timeout('C'))
@@ -66,9 +66,9 @@ array values has the same order of the computations
 # 2 - cancellation
 
 ```js
-import { lazyPipe } from '@reactive/lazy-pipe';
+import { pipe } from 'reactive-lazy-pipe';
 
-const cancel = lazyPipe(timeout('A'))(timeout('B')).run({ resolve: console.log, reject: console.error })
+const cancel = pipe(timeout('A'))(timeout('B')).run({ resolve: console.log, reject: console.error })
 
 cancel();
 ```
@@ -77,11 +77,11 @@ cancel();
 # 3 - nesting
 
 ```js
-import { lazyPipe } from '@reactive/lazy-pipe';
+import { pipe } from 'reactive-lazy-pipe';
 
-lazyPipe
+pipe
     (timeout('A'))
-    (lazyPipe(timeout('B'))(timeout('C')).run)
+    (pipe(timeout('B'))(timeout('C')).run)
     .run({ resolve: console.log, reject: console.error })
 ```
 - it just works, the "run" method has the same interface as any other computation,
@@ -90,10 +90,10 @@ takes a context and returns a cleanup function
 # 4 - custom operators
 
 ```js
-import { lazyPipe, map, switchMap, /* and few others */ } from '@reactive/lazy-pipe';
+import { pipe, map, switchMap, /* and few others */ } from 'reactive-lazy-pipe';
 const add = n1 => n2 => n1 + n2;
 
-lazyPipe
+pipe
     (switchMap(timeout(1)))
     (map(add(1)))
     .run({ resolve: console.log, reject: console.error })
@@ -105,10 +105,10 @@ lazyPipe
 # 5 - pass random data
 
 ```js
-import { lazyPipe, map, switchMap, /* and few others */ } from '@reactive/lazy-pipe';
+import { pipe, map, switchMap, /* and few others */ } from 'reactive-lazy-pipe';
 const add = n1 => n2 => n1 + n2;
 
-lazyPipe
+pipe
     ((context) => context.resolve(context['RANDOM-KEY']))
     .run({ resolve: console.log, reject: console.error, 'RANDOM-KEY': 'RANDOM VALUE' })
 

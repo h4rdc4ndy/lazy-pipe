@@ -11,9 +11,9 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lazyPipe = void 0;
+exports.pipe = void 0;
 var helpers_1 = require("./helpers");
-var lazyPipe = function () {
+var pipe = function () {
     var fns = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         fns[_i] = arguments[_i];
@@ -23,7 +23,7 @@ var lazyPipe = function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             nextFns[_i] = arguments[_i];
         }
-        return (0, exports.lazyPipe)(function (context, internalContext) { return (0, helpers_1.maybeParallel)(fns)(__assign(__assign({}, context), { resolve: internalContext.cancellationGuard(function (data) { return internalContext.enqueueCancelFn((0, helpers_1.maybeParallel)(nextFns)(__assign(__assign({}, context), { data: data }), internalContext)); }) }), internalContext); });
+        return (0, exports.pipe)(function (context, internalContext) { return (0, helpers_1.maybeParallel)(fns)(__assign(__assign({}, context), { resolve: internalContext.cancellationGuard(function (data) { return internalContext.enqueueCancelFn((0, helpers_1.maybeParallel)(nextFns)(__assign(__assign({}, context), { data: data }), internalContext)); }) }), internalContext); });
     };
     resume.run = function (context) {
         var state = { cancelQ: new Set(), cancelled: false };
@@ -38,4 +38,4 @@ var lazyPipe = function () {
     };
     return resume;
 };
-exports.lazyPipe = lazyPipe;
+exports.pipe = pipe;

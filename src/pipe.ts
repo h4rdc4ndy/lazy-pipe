@@ -1,7 +1,7 @@
 import { cancellationGuard, enqueueCancelFn, maybeParallel, noop } from "./helpers";
 
-export const lazyPipe = (...fns) => {
-    const resume = (...nextFns) => lazyPipe((context, internalContext) => maybeParallel(fns)({
+export const pipe = (...fns) => {
+    const resume = (...nextFns) => pipe((context, internalContext) => maybeParallel(fns)({
         ...context,
         resolve: internalContext.cancellationGuard((data) => internalContext.enqueueCancelFn(maybeParallel(nextFns)({ ...context, data }, internalContext))),
     }, internalContext));

@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lazyPipe = void 0;
-var lazy_pipe_1 = require("./lazy-pipe");
-Object.defineProperty(exports, "lazyPipe", { enumerable: true, get: function () { return lazy_pipe_1.lazyPipe; } });
+exports.pipe = void 0;
+var pipe_1 = require("./pipe");
+Object.defineProperty(exports, "pipe", { enumerable: true, get: function () { return pipe_1.pipe; } });
 __exportStar(require("./operators"), exports);

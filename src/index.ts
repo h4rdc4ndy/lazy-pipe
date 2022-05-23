@@ -1,2 +1,2 @@
-export { lazyPipe } from "./lazy-pipe";
+export { pipe } from "./pipe";
 export * from './operators';
