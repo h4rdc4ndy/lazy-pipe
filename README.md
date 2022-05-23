@@ -94,7 +94,7 @@ import { lazyPipe, map, switchMap, /* and few others */ } from 'lazy-pipe';
 const add = n1 => n2 => n1 + n2;
 
 lazyPipe
-    (timeout(1))
+    (switchMap(timeout(1)))
     (map(add(1)))
     .run({ resolve: console.log, reject: console.error })
 
