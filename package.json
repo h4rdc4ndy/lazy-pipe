@@ -1,6 +1,6 @@
 {
   "name": "@reactive/lazy-pipe",
-  "version": "1.0.0",
+  "version": "1.0.0.beta",
   "description": "tiny functional lazy pipe operator with a lot of flexibility and clean api",
   "main": "dist/common/index.js",
   "module": "dist/esm/index.js",
