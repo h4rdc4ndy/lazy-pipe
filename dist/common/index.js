@@ -18,17 +18,3 @@ exports.lazyPipe = void 0;
 var lazy_pipe_1 = require("./lazy-pipe");
 Object.defineProperty(exports, "lazyPipe", { enumerable: true, get: function () { return lazy_pipe_1.lazyPipe; } });
 __exportStar(require("./operators"), exports);
-// lazyPipe
-// const cancel = lazyPipe
-//     (domEvent(btn, 'click'))
-//     (map(data => (console.log(data), data)))
-//     (concatMap(timeout('A+')))
-//     (map(data => (console.log(data), data)))
-//     (switchMap(timeout('A')), switchMap(timeout('B')))
-//     (map(data => (console.log(data), data)))
-//     (timeout('B'))
-//     (timeout('C'))
-//     (timeout('X'), timeout('Y'), timeout('Z')) // multiple computations runs in parallel
-//     (map(data => (console.log(data), data)))
-//     .run({ resolve: () => console.log('DONE') });
-// setTimeout(cancel, 2000);
